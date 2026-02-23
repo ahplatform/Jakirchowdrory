@@ -6,154 +6,199 @@
 <title>মাসিক বাসা ভাড়া হিসাব</title>
 
 <style>
-body {
-  font-family: Arial, sans-serif;
-  background: #f2f2f2;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
+body{
+    font-family: Arial, sans-serif;
+    background:#f2f2f2;
+    margin:0;
 }
 
-.box {
-  width: 90%;
-  max-width: 380px;
-  background: #ffffff;
-  padding: 25px;
-  border-radius: 10px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+/* ===== Navbar ===== */
+.navbar{
+    background:green;
+    padding:10px 0;
+    text-align:center;
 }
 
-h2 {
-  text-align: center;
-  margin-bottom: 20px;
+.navbar a{
+    background:#fff;
+    color:green;
+    text-decoration:none;
+    padding:8px 16px;
+    margin:0 6px;
+    border-radius:6px;
+    font-weight:600;
+    display:inline-block;
+    transition:0.3s;
 }
 
-input, select {
-  width: 100%;
-  padding: 12px;
-  margin-top: 8px;
-  margin-bottom: 15px;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-  font-size: 14px;
-  box-sizing: border-box;
+.navbar a:hover{
+    background:darkgreen;
+    color:#fff;
 }
 
-input:focus, select:focus {
-  outline: none;
-  border-color: green;
+/* ===== Center Box ===== */
+.wrapper{
+    display:flex;
+    justify-content:center;
+    align-items:flex-start;   /* আগের center ছিল */
+    padding-top:20px;         /* উপরে কম gap */
 }
 
-button {
-  width: 100%;
-  padding: 12px;
-  background: green;
-  color: white;
-  border: none;
-  border-radius: 6px;
-  font-size: 15px;
-  cursor: pointer;
-  transition: 0.3s;
+.box{
+    width:95%;
+    max-width:450px;
+    background:#fff;
+    padding:20px;
+    border-radius:12px;
+    box-shadow:0 6px 15px rgba(0,0,0,0.1);
 }
 
-button:hover {
-  background: darkgreen;
+h2{
+    text-align:center;
+    margin-bottom:15px;
 }
 
-@media (max-width: 400px) {
-  .box {
-    padding: 20px;
-  }
+label{
+    font-weight:600;
+    font-size:14px;
+    display:block;
+    margin-bottom:5px;
+}
+
+select,input{
+    width:100%;
+    padding:10px;
+    margin-bottom:14px;
+    border-radius:8px;
+    border:1px solid #ccc;
+    font-size:14px;
+    box-sizing:border-box;
+}
+
+input:focus,select:focus{
+    outline:none;
+    border-color:green;
+}
+
+button{
+    width:100%;
+    padding:12px;
+    background:green;
+    color:#fff;
+    border:none;
+    border-radius:8px;
+    font-size:16px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:darkgreen;
 }
 </style>
 </head>
 
 <body>
 
+<div class="navbar">
+<a href="https://docs.google.com/spreadsheets/d/1mvmb1i2-ZIE16oYEqUrUvKGtGumw4-l2fpInq1ojIzg/edit?usp=sharing">মাসিক হিসাব</a>
+<a href="https://docs.google.com/spreadsheets/d/1nRlIk_AQ9VWaXqOr6Kzn7kiU3ubzzXJbdopGh9cQKoc/edit?usp=sharing">ডাটা রিমুভ</a>
+<a href="https://github.com/ahplatform/Jakirchowdrory">ডাউনলোড</a>
+</div>
+
+<div class="wrapper">
 <div class="box">
+
 <h2>মাসিক বাসা ভাড়া হিসাব</h2>
 
 <form id="rentForm">
 
-<select name="name" required>
-  <option value="">নাম নির্বাচন করুন</option>
-  <option value="101">মোঃ মাইনুল ইসলাম</option>
-  <option value="102">মোঃ রাজিকুল ইসলাম</option>
-  <option value="103">মোঃ রাজিকুল ইসলাম 2</option>
-  <option value="104">মোছাঃ হোসনেয়ারা</option>
-  <option value="106">মোঃ শিউলী আক্তার</option>
-  <option value="107">মোঃ জামাতুল্লাহ হোসেন</option>
-  <option value="108">মোঃ শহিদুল ইসলাম</option>
-  <option value="109">মোছাঃ আশরাফ হোসেন</option>
-  <option value="110">মোঃ আরশাফ হোসেন ২</option>
-  <option value="111">সাগর ভ্র্যরমন</option>
-  <option value="112">শিল্পি আক্তার</option>
-  <option value="113">সাগর ভ্র্যরমন ২</option>
-  <option value="114">মোঃ সজীব হোসেন</option>
+<label>নাম নির্বাচন করুন</label>
+<select name="name" id="nameSelect" required>
+<option value="">নাম নির্বাচন করুন</option>
+<option>মোঃ মাইনুল ইসলাম</option>
+<option>মোঃ রাজিকুল ইসলাম</option>
+<option>মোছাঃ হোসনেয়ারা</option>
 </select>
 
+<label>মাস নির্বাচন করুন</label>
 <select name="month" required>
-  <option value="">মাস নির্বাচন করুন</option>
-  <option>January</option>
-  <option>February</option>
-  <option>March</option>
-  <option>April</option>
-  <option>May</option>
-  <option>June</option>
-  <option>July</option>
-  <option>August</option>
-  <option>September</option>
-  <option>October</option>
-  <option>November</option>
-  <option>December</option>
+<option value="">মাস নির্বাচন করুন</option>
+<option>January</option>
+<option>February</option>
+<option>March</option>
+<option>April</option>
+<option>May</option>
+<option>June</option>
+<option>July</option>
+<option>August</option>
+<option>September</option>
+<option>October</option>
+<option>November</option>
+<option>December</option>
 </select>
 
-<select name="bill_type" required>
-  <option value="">বিলের ধরন নির্বাচন করুন</option>
-  <option value="1">অতীত উনিট</option>
-  <option value="2">বর্তমান ইউনিট</option>
-  <option value="3">মোট উনিট</option>
-  <option value="4">বিদ্যুৎ বিল</option>
-  <option value="5">বকেয়া বিল</option>
-  <option value="6">মাসিক ভাড়া</option>
-  <option value="7">বকেয়া ভাড়া</option>
-  <option value="8">মোট বকেয়া</option>
-  <option value="9">রশিদ নং</option>
-</select>
-
-<input type="number" name="number" placeholder="টাকা লিখুন" required>
+<div id="billFields"></div>
 
 <button type="submit">ডাটা জমা দিন</button>
 
 </form>
 </div>
+</div>
 
 <script>
-const scriptURL = "https://script.google.com/macros/s/AKfycbxCKhn0LlJr7bjF6vdPhv-MJrMHuzzE7LZy1zxnDyBOe13DM85tMyAlFxGiPT-fLcQLDA/exec";
+const billTypes = [
+"অতীত ইউনিট",
+"বর্তমান ইউনিট",
+"মোট ইউনিট",
+"বিদ্যুৎ বিল",
+"বকেয়া বিল",
+"মাসিক ভাড়া",
+"বকেয়া ভাড়া",
+"মোট বকেয়া",
+"রশিদ নং"
+];
+
+const nameSelect = document.getElementById("nameSelect");
+const billContainer = document.getElementById("billFields");
+
+nameSelect.addEventListener("change", function(){
+billContainer.innerHTML = "";
+if(this.value !== ""){
+billTypes.forEach(function(type,index){
+let label = document.createElement("label");
+label.innerText = type;
+
+let input = document.createElement("input");
+input.type = "number";
+input.placeholder = type + " লিখুন";
+input.name = "bill_" + index;
+
+billContainer.appendChild(label);
+billContainer.appendChild(input);
+});
+}
+});
+
+const scriptURL = "https://script.google.com/macros/s/AKfycbwIvznyCfxDGWmM5EHWZ6huFKANUm42BukwalfUbmbHsDeMLeazEUOTb_yZyCBO0cv0/exec";
 
 document.getElementById("rentForm")
-.addEventListener("submit", function(e) {
-
-  e.preventDefault();
-
-  fetch(scriptURL, {
-    method: "POST",
-    body: new FormData(this)
-  })
-  .then(res => res.text())
-  .then(response => {
-    if(response.trim() === "Success"){
-      alert("ডাটা সফলভাবে জমা হয়েছে ✅");
-      this.reset();
-    } else {
-      alert("সমস্যা হয়েছে ❌");
-    }
-  })
-  .catch(() => alert("Error ❌"));
-
+.addEventListener("submit", function(e){
+e.preventDefault();
+fetch(scriptURL,{
+method:"POST",
+body:new FormData(this)
+})
+.then(res=>res.text())
+.then(response=>{
+if(response.trim()==="Success"){
+alert("ডাটা সফলভাবে জমা হয়েছে ✅");
+this.reset();
+billContainer.innerHTML="";
+}else{
+alert("সমস্যা হয়েছে ❌");
+}
+})
+.catch(()=>alert("Error ❌"));
 });
 </script>
 
